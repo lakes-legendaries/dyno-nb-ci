@@ -42,4 +42,4 @@ jobs:
         done
     - name: Push to main
       run: |
-        git push origin dev:main
+        git push origin dev:main -f

@@ -29,6 +29,7 @@ jobs:
         pip install jupyter
     - name: Convert notebooks
       run: |
+        ORIGIN=$(git remote get-url origin)
         chmod +x ./git-filter-repo
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
@@ -36,6 +37,7 @@ jobs:
           git commit -m "Converting nb $FILE"
           ./git-filter-repo --force --path ${FILE:2} --invert-paths
         done
+        git remote add origin $ORIGIN
     - name: Push to main
       run: |
         git push origin dev:main -f

@@ -33,11 +33,11 @@ jobs:
         ORIGIN=$(git remote get-url origin)
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
-          git add ${FILE%.ipynb}.py
-          git commit -m "Converting nb $FILE"
-          ./git-filter-repo --force --path ${FILE:2} --invert-paths
+          git add ${FILE%.ipynb}.py || :
+          git commit -m "Converting nb $FILE" || :
+          ./git-filter-repo --force --path ${FILE:2} --invert-paths || :
         done
-        git remote add origin $ORIGIN
+        git remote add origin $ORIGIN || :
     - name: Push to main
       run: |
         git push origin dev:main -f

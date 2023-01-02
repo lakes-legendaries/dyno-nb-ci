@@ -27,15 +27,15 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install jupyter
-    # - name: Convert notebooks
-    #   run: |
-    #     for FILE in $(find . -type f -name "*.ipynb"); do
-    #       jupyter nbconvert --to script $FILE
-    #       git add ${FILE%.ipynb}.py
-    #       git commit -m "Converting nb $FILE"
-    #       git filter-branch --force \
-    #         --index-filter "git rm --cached --ignore-unmatch $FILE"
-    #     done
+    - name: Convert notebooks
+      run: |
+        for FILE in $(find . -type f -name "*.ipynb"); do
+          jupyter nbconvert --to script $FILE
+          git add ${FILE%.ipynb}.py
+          git commit -m "Converting nb $FILE"
+          git filter-branch --force \
+            --index-filter "git rm --cached --ignore-unmatch $FILE"
+        done
     - name: Push to main
       run: |
         git push origin dev:main -f

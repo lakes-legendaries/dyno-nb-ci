@@ -31,7 +31,7 @@ jobs:
       run: |
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
-          git add ${FILE%.py}
+          git add ${FILE%.ipynb}.py
           git commit -m "Converting nb $FILE"
           git filter-branch \
             --force \

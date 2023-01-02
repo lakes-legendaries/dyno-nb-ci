@@ -31,7 +31,6 @@ jobs:
     - name: Convert notebooks
       run: |
         ORIGIN=$(git remote get-url origin)
-        chmod +x ./git-filter-repo
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py

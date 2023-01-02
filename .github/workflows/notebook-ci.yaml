@@ -1,0 +1,44 @@
+name: Notebook CI
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  convert-nbs:
+    environment: actions
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: actions
+        token: ${{ secrets.GIT_TOKEN }}
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: 3.9
+    - name: Configure git
+      run: |
+        git config --global user.name "version bot"
+        git config --global user.email "<>"
+    - name: Setup python environment
+      run: |
+        pip install --upgrade pip
+        pip install jupyter
+    - name: Convert notebooks
+      run: |
+        for FILE in $(find . -type f -name "*.ipynb"); do
+          jupyter nbconvert --to script $FILE
+          git add ${FILE%.py}
+          git commit -m "Converting nb $FILE"
+          git filter-branch \
+            --force \
+            --index-filter "git rm --cached --ignore-unmatch $FILE" \
+            --prune-empty \
+            --tag-name-filter cat \
+            -- --all
+        done
+    - name: Push to main
+      run: |
+        git push origin dev:main

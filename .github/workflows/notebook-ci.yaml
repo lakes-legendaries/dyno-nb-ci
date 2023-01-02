@@ -29,6 +29,7 @@ jobs:
         pip install jupyter
     - name: Convert notebooks
       run: |
+        chmod +x ./git-filter-repo
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py

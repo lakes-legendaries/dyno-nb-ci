@@ -34,7 +34,7 @@ jobs:
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py
           git commit -m "Converting nb $FILE"
-          ./git-filter-repo --force --path $FILE --invert-paths
+          ./git-filter-repo --force --path ${FILE:2} --invert-paths
         done
     - name: Push to main
       run: |

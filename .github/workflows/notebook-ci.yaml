@@ -29,6 +29,7 @@ jobs:
         pip install jupyter
     - name: Convert notebooks
       run: |
+        git log
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py
@@ -36,6 +37,7 @@ jobs:
           git filter-branch --force \
             --index-filter "git rm --cached --ignore-unmatch $FILE"
         done
+        git log
     - name: Push to main
       run: |
         git push origin dev:main -f

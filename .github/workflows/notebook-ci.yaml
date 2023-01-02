@@ -33,12 +33,8 @@ jobs:
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py
           git commit -m "Converting nb $FILE"
-          git filter-branch \
-            --force \
-            --index-filter "git rm --cached --ignore-unmatch $FILE" \
-            --prune-empty \
-            --tag-name-filter cat \
-            -- --all
+          git filter-branch --force \
+            --index-filter "git rm --cached --ignore-unmatch $FILE"
         done
     - name: Push to main
       run: |

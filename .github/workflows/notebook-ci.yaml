@@ -54,6 +54,8 @@ jobs:
         git fetch origin main
         git checkout main
 
+        git log
+
         # push to main, if this action is still for the latest commit
         if [[ $(git log) == $(cat .gitlog) ]]; then
           git checkout $BRANCH

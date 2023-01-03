@@ -60,6 +60,7 @@ jobs:
         # get main, to check if it's been updated since this action started
         git fetch origin main
         git checkout main
+        git pull origin main:main
 
         git log
         echo ""

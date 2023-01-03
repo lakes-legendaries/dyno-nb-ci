@@ -46,11 +46,14 @@ jobs:
         git branch -m $BRANCH
 
         # restore origin (lost w/ git history edit)
-        git remote add origin "$(cat .gitorigin)"
+        git remote add origin "$(cat .gitorigin)" || :
 
         # get main's state, to check for updates since action started
         git fetch origin main
         git checkout main
+
+        echo $(git log)
+        echo $(cat .gitlog)
 
         # push to main, if this action is still for the latest commit
         if [[ $(git log) == $(cat .gitlog) ]]; then

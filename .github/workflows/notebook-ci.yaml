@@ -49,14 +49,16 @@ jobs:
         git remote add origin "$(cat .gitorigin)" || :
 
         # get main's state, to check for updates since action started
-        git fetch origin main
-        git checkout main
-
-        echo $(git log)
-        echo $(cat .gitlog)
+        # (we can't just checkout main b/c git history has been
+        #  edited, and that has far-reaching consequences for what the
+        #  git history now looks like.)
+        git clone "$(cat .gitorigin)" .main
+        cd .main
+        git log > .gitlog
+        cd ..
 
         # push to main, if this action is still for the latest commit
-        if [[ $(git log) == $(cat .gitlog) ]]; then
+        if [[ $(cat .main/.gitlog) == $(cat .gitlog) ]]; then
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         else

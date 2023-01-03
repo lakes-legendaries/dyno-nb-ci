@@ -21,8 +21,6 @@ jobs:
           python-version: 3.9
     - name: Configure git
       run: |
-        git fetch origin main
-        git pull origin main
         git config --global user.name "nb ci bot"
         git config --global user.email "<>"
     - name: Setup python environment
@@ -55,7 +53,7 @@ jobs:
         git checkout main
 
         # push to main, if this action is still for the latest commit
-        if [[ $(cat .main/.gitlog) == $(cat .gitlog) ]]; then
+        if [[ $(git log) == $(cat .gitlog) ]]; then
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         else

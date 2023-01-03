@@ -1,0 +1,193 @@
+commit e6e9201bc8843a30002f9509f55e2f9197c50ec2
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:32:43 2023 -0500
+
+    debugging on actions erver
+
+commit 5882a996ae1d4eca8888811eab1e124283583377
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:23:28 2023 -0500
+
+    debugging on actions erver
+
+commit ec43b629cb48a9b88d2ce243ed5b69d440326cd1
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:20:20 2023 -0500
+
+    fetching main
+
+commit ade13029ec4da73a6290376a2407a4d07201a242
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:17:39 2023 -0500
+
+    test file
+
+commit e0b0a20c0308400bd2acf07b3cc7883db92477b6
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:16:58 2023 -0500
+
+    deleting old test files
+
+commit a63629210d3e9314e5ea3e5d9a18a565ed938d53
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 19:16:34 2023 -0500
+
+    updating action to work in-place on main
+
+commit 97980d307a9d371e0fcf22078e6845f3132a6f56
+Merge: e83f3d9 f93f62f
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 11:17:02 2023 -0500
+
+    Merge branch 'main' into mp
+
+commit f93f62f87150d37656c2fc850a748d6a1faa2598
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 11:17:01 2023 -0500
+
+    making failure resistant
+
+commit e83f3d93da0f1ea5732ccb934fb08c99b5dedfa9
+Merge: 09dabc5 3082746
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:59:46 2023 -0500
+
+    Merge branch 'main' into mp
+
+commit 30827464f99152a48497512472b0aaf5761c99f3
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:59:39 2023 -0500
+
+    trying to fix permissions issues
+
+commit 09dabc5c147aeaa5c96a89e4472b4096ee703c27
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:51:28 2023 -0500
+
+    adding nb
+
+commit 63f372d583e846540311ce4f4629ddcff38f5ad2
+Author: nb ci bot <>
+Date:   Mon Jan 2 15:48:33 2023 +0000
+
+    Converting nb ./path/to/file.ipynb
+
+commit 720e6bd60ac78d84e55a06773994902cb2ca5c86
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:48:21 2023 -0500
+
+    fetching all commits
+
+commit 91837d28dbaf0a048da10a1682065f84970b0ed3
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:46:16 2023 -0500
+
+    fixing origin issue
+
+commit f88772b2fb851eac735f15d29c0d4dbc80cef1a5
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:43:34 2023 -0500
+
+    debugging on actions server
+
+commit 73938d599e501b439dd84fae7adf3a365d5a2c08
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:40:17 2023 -0500
+
+    making executable
+
+commit 745c8c83bc17010eb40e60887936a7d52960c2a4
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:37:15 2023 -0500
+
+    using git-filter-repo
+
+commit 90d4f656086a963ca9603a4a88ac3a8d0f3a0611
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:35:51 2023 -0500
+
+    adding git-filter-repo
+
+commit 07ce1ea15525bf0377a3e3d1235f0eff2aded496
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:29:55 2023 -0500
+
+    restoring conversion code
+
+commit 5b34d6e40d28f75308ac3484d57beaf578373c53
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:26:08 2023 -0500
+
+    debugging on actions server
+
+commit e85496efc5d1a7bf874c6efdddf4daf92d2293c1
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:22:47 2023 -0500
+
+    debugging on actions server
+
+commit 5e1db192e42f631b1ea690cef157c889bbaa012f
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:08:40 2023 -0500
+
+    updating workflow
+
+commit e072880bda0a784f47b30d3912aa3462e1b4bdfb
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 10:08:01 2023 -0500
+
+    creating README
+
+commit 43c754a6391efdfed229a3729399477fd8837d91
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:57:34 2023 -0500
+
+    making force push
+
+commit df98ce91bae5e2a2c3f923b16f4b1662ec050739
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:52:21 2023 -0500
+
+    fixing file ext substitution
+
+commit 5b3a9ea44a487e6a63fe08616d133206b3742d9c
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:46:40 2023 -0500
+
+    changing bot name
+
+commit 5c5a2f2f404fd73943f25fff1ce1ea9172a6745c
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:44:05 2023 -0500
+
+    adding server to run on
+
+commit 9cb390951412bfd27e024296995c23d8dad38374
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:42:54 2023 -0500
+
+    fixing dev branch name reference
+
+commit 3d3650ee2561058c78a5c98333ba1121d0392d88
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:41:06 2023 -0500
+
+    jupyter + pyplot reqs
+
+commit dafe392a06d56f20fe87b9a764dc8a682a8f7f31
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:40:47 2023 -0500
+
+    ignoring venv
+
+commit af4fe96d6083a9b99dd56c912e29b3fc1b6174b2
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:40:40 2023 -0500
+
+    notebook ci action
+
+commit 1e99b3c16833a6525763c464a16f0973a982fb04
+Author: Mike Powell PhD <mike@lakeslegendaries.com>
+Date:   Mon Jan 2 09:11:25 2023 -0500
+
+    Initial Commit

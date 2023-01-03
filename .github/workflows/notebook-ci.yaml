@@ -21,17 +21,10 @@ jobs:
           python-version: 3.9
     - name: Configure git
       run: |
-        git log > .gitlog
-        cat .gitlog
+        git pull origin main
+        git log
         git config --global user.name "nb ci bot"
         git config --global user.email "<>"
-        echo ""
-        echo ""
-        echo ""
-        echo ""
-        echo ""
-        git log > .gitlog
-        cat .gitlog
     - name: Setup python environment
       run: |
         pip install --upgrade pip
@@ -58,17 +51,11 @@ jobs:
         git remote add origin "$(cat .gitorigin)"
 
         # get main's state, to check for updates since action started
-        git clone "$(cat .gitorigin)" .main
-
-        echo $(cd .main && git log)
-        echo ""
-        echo ""
-        echo ""
-        echo ""
-        cat .gitlog
+        git fetch origin main
+        git checkout main
 
         # push to main, if this action is still for the latest commit
-        if [[ $(cd .main && git log) == $(cat .gitlog) ]]; then
+        if [[ $(git log) == $(cat .gitlog) ]]; then
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         fi

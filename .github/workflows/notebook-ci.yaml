@@ -3,7 +3,7 @@ name: Notebook CI
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   convert-nbs:
@@ -14,7 +14,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        ref: dev
         token: ${{ secrets.GIT_TOKEN }}
     - name: Setup Python
       uses: actions/setup-python@v2
@@ -28,16 +27,33 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install jupyter
+    - name: Save git state
+      run: |
+        git log > .gitlog
+        git remote get-url origin > .gitorigin
     - name: Convert notebooks
       run: |
-        ORIGIN=$(git remote get-url origin)
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
-          git add ${FILE%.ipynb}.py || :
-          git commit -m "Converting nb $FILE" || :
-          ./git-filter-repo --force --path ${FILE:2} --invert-paths || :
+          git add ${FILE%.ipynb}.py
+          git commit -m "Converting nb ${FILE:2}"
+          ./git-filter-repo --force --path ${FILE:2} --invert-paths
         done
-        git remote add origin $ORIGIN || :
-    - name: Push to main
+    - name: Save edits
       run: |
-        git push origin dev:main -f
+        # rename current setup as unique branch
+        BRANCH=main-$RANDOM
+        git branch -m $BRANCH
+
+        # restore origin (lost w/ git history edit)
+        git remote add origin "$(cat .gitorigin)"
+
+        # get main, to check if it's been updated since this action started
+        git checkout main
+        git pull origin main
+
+        # push to main, if this action is still for the latest commit
+        if [[ $(git log) == $(cat .gitlog) ]]; then
+          git checkout $BRANCH
+          git push origin $BRANCH:main -f
+        fi

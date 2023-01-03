@@ -49,8 +49,8 @@ jobs:
         git remote add origin "$(cat .gitorigin)"
 
         # get main, to check if it's been updated since this action started
+        git fetch origin main
         git checkout main
-        git pull origin main
 
         # push to main, if this action is still for the latest commit
         if [[ $(git log) == $(cat .gitlog) ]]; then

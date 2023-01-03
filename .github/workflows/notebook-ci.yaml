@@ -64,3 +64,8 @@ jobs:
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         fi
+    - name: Test
+      run: |
+        git clone "$(cat .gitorigin)" .main
+        cd .main
+        git log

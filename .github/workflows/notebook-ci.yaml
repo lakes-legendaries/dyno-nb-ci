@@ -57,12 +57,10 @@ jobs:
         # restore origin (lost w/ git history edit)
         git remote add origin "$(cat .gitorigin)"
 
-        # get main, to check if it's been updated since this action started
-        git fetch origin main
-        git checkout main
-        git pull origin main:main
+        # get main's state, to check for updates since action started
+        git clone "$(cat .gitorigin)" .main
 
-        git log
+        echo $(cd main && git log)
         echo ""
         echo ""
         echo ""
@@ -70,7 +68,7 @@ jobs:
         cat .gitlog
 
         # push to main, if this action is still for the latest commit
-        if [[ $(git log) == $(cat .gitlog) ]]; then
+        if [[ $(cd .main && git log) == $(cat .gitlog) ]]; then
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         fi

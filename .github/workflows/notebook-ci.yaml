@@ -54,6 +54,9 @@ jobs:
         git fetch origin main
         git checkout main
 
+        echo $BRANCH
+        git branch
+
         git log
 
         # push to main, if this action is still for the latest commit

@@ -49,9 +49,9 @@ jobs:
         git remote add origin "$(cat .gitorigin)" || :
 
         # get main's state, to check for updates since action started
-        # (we can't just checkout main b/c git history has been
-        #  edited, and that has far-reaching consequences for what the
-        #  git history now looks like.)
+        #   (we can't just checkout main b/c git history has been
+        #   edited, and that has far-reaching consequences for what the
+        #   git history now looks like.)
         git clone "$(cat .gitorigin)" .main
         cd .main
         git log > .gitlog
@@ -63,4 +63,5 @@ jobs:
           git push origin $BRANCH:main -f
         else
           echo "Aborting: Git history does not match."
+          exit 1
         fi

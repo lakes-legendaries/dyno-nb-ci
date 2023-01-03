@@ -21,8 +21,15 @@ jobs:
           python-version: 3.9
     - name: Configure git
       run: |
+        git log
         git config --global user.name "nb ci bot"
         git config --global user.email "<>"
+        echo ""
+        echo ""
+        echo ""
+        echo ""
+        echo ""
+        git log
     - name: Setup python environment
       run: |
         pip install --upgrade pip

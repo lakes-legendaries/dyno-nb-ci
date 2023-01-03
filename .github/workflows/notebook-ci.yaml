@@ -11,7 +11,7 @@ jobs:
     environment: actions
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
         token: ${{ secrets.GIT_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
           git checkout $BRANCH
           git push origin $BRANCH:main -f
         else
-          echo "Git history does not match: Aborting"
+          echo "Aborting: Git history does not match."
         fi
 
         echo $(cat .gitlog)

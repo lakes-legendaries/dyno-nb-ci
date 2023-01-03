@@ -51,13 +51,8 @@ jobs:
         git remote add origin "$(cat .gitorigin)"
 
         # get main's state, to check for updates since action started
-        # (we can't just checkout main b/c git history has been
-        #  edited, and that has far-reaching consequences for what the
-        #  git history now looks like.)
-        git clone "$(cat .gitorigin)" .main
-        cd .main
-        git log > .gitlog
-        cd ..
+        git fetch origin main
+        git checkout main
 
         # push to main, if this action is still for the latest commit
         if [[ $(cat .main/.gitlog) == $(cat .gitlog) ]]; then
@@ -66,10 +61,3 @@ jobs:
         else
           echo "Aborting: Git history does not match."
         fi
-
-        echo $(cat .gitlog)
-        echo
-        echo
-        echo
-        echo
-        echo $(cat .main/.gitlog)

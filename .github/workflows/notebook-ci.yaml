@@ -60,7 +60,7 @@ jobs:
         # get main's state, to check for updates since action started
         git clone "$(cat .gitorigin)" .main
 
-        echo $(cd main && git log)
+        echo $(cd .main && git log)
         echo ""
         echo ""
         echo ""

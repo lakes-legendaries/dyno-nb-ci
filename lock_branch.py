@@ -27,12 +27,20 @@ if __name__ == '__main__':
 
     # get current protection rules
     rules = {
-        key: value['enabled']
+        key: (
+            value['enabled']
+            if 'enabled' in value
+            else {
+                k: v
+                for k, v in value.items()
+                if k != 'url'
+            }
+        )
         for key, value in requests.get(url, headers=headers).json().items()
-        if type(value) is dict and 'enabled' in value
+        if key != 'url'
     }
 
-    # modify rules
+    # modify rules, set required if not provided
     rules['lock_branch'] = args.lock
     rules.setdefault('required_pull_request_reviews', None)
     rules.setdefault('required_status_checks', None)

@@ -11,7 +11,7 @@ jobs:
     needs: convert-nbs
     if: ${{ always() }}
     environment: actions
-    steps:=
+    steps:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: lock-branch
     environment: actions
-    steps:=
+    steps:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
@@ -72,7 +72,7 @@ jobs:
     needs: convert-nbs
     if: ${{ always() }}
     environment: actions
-    steps:=
+    steps:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:

@@ -53,7 +53,7 @@ jobs:
         git config --global user.email "<>"
     - name: Convert notebooks
       run: |
-        ORIGN="$(git remote get-url origin)"
+        ORIGIN="$(git remote get-url origin)"
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py

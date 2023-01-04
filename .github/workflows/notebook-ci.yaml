@@ -57,7 +57,7 @@ jobs:
         for FILE in $(find . -type f -name "*.ipynb"); do
           jupyter nbconvert --to script $FILE
           git add ${FILE%.ipynb}.py
-          git commit -m "Converting nb ${FILE:2}"
+          git commit -m "[no ci] Converting nb ${FILE:2}"
           ./git-filter-repo --force --path ${FILE:2} --invert-paths
         done
         git remote add origin "$ORIGIN" || :

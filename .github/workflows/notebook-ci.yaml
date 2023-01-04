@@ -8,8 +8,6 @@ on:
 jobs:
   lock-branch:
     runs-on: ubuntu-latest
-    needs: convert-nbs
-    if: ${{ always() }}
     environment: actions
     steps:
     - name: Checkout repo
